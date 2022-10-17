@@ -1,0 +1,15 @@
+FROM nginx:latest 
+
+WORKDIR /var/www/application
+
+COPY ./index.html
+
+RUN chmod 755 -R /var/www/application
+
+EXPOSE 8081
+
+EXPOSE 443
+
+ENTRYPOINT [ "nginx" ]
+
+CMD [ "-g", "daemon off;" ]
